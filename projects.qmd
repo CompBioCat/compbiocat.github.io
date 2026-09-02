@@ -1,5 +1,0 @@
----
-title: "Projects"
----
-
-{{< include _projects.md >}}

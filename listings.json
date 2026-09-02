@@ -1,0 +1,20 @@
+[
+  {
+    "listing": "/news.html",
+    "items": [
+      "/news/2026-08-01-phd-position-open.html",
+      "/news/2026-06-01-nextgenbiocat-munich.html",
+      "/news/2026-04-15-consolidacion-investigadora.html",
+      "/news/2026-04-10-rseq-young-investigator-prize.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/news/2026-08-01-phd-position-open.html",
+      "/news/2026-06-01-nextgenbiocat-munich.html",
+      "/news/2026-04-15-consolidacion-investigadora.html",
+      "/news/2026-04-10-rseq-young-investigator-prize.html"
+    ]
+  }
+]

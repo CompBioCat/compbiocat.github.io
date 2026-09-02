@@ -1,5 +1,0 @@
----
-title: "Repositories and data"
----
-
-{{< include _software.md >}}

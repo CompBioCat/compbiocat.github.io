@@ -1,0 +1,21 @@
+---
+title: "Hande Abeş and Aqza Elsa John at the NextGenBioCat meeting in Munich"
+date: 2026-06-01
+categories: [meeting]
+description: >
+  Two of the group's PhD students took part in the NextGenBioCat meeting in
+  Munich.
+---
+
+Hande Abeş and Aqza Elsa John, both PhD students in the group, attended the
+NextGenBioCat meeting in Munich.
+
+Hande works on bridging scales in the computational modeling of biochemical and
+biocatalytic processes; Aqza works on the computational modeling of electrostatic
+confinement in biocatalysis.
+
+::: {.cbc-todo}
+Two details would make this item more useful and neither was supplied: the exact
+dates of the meeting, and whether Hande and Aqza presented a talk or a poster
+(and on what). Nothing has been assumed.
+:::

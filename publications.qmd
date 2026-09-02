@@ -1,0 +1,16 @@
+---
+title: "Publications"
+---
+
+## Preprints
+
+::: {.cbc-note}
+Manuscripts not yet published in a journal. Once a preprint appears in a
+journal it moves into the list below.
+:::
+
+{{< include _preprints.md >}}
+
+## All publications
+
+{{< include _publications.md >}}

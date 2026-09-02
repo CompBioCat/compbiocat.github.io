@@ -1,0 +1,10 @@
+---
+title: "Research"
+---
+
+::: {.cbc-note}
+Four parallel lines of work. The selected papers under each are a short list;
+the full record is on the [publications](publications.qmd) page.
+:::
+
+{{< include _research.md >}}

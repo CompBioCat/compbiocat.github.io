@@ -1,0 +1,27 @@
+<%
+// Listing template for the news page itself: title, date, a short text, and an
+// image where the item has one. The home page uses news-index.ejs instead,
+// which shows the title alone — deliberately, so the home page stays an index
+// and the news page is where items are actually read.
+//
+// Anchors are left on their own lines. Quarto re-parses this output through
+// Pandoc, which wraps loose inline content in <p> tags, but it is also that
+// parse which rewrites the .qmd hrefs to .html. The wrappers are absorbed in
+// CSS (see .cbc-newsfull in custom.scss) rather than avoided here.
+%>
+<div class="cbc-newsfull">
+<% for (const item of items) { %>
+<div class="cbc-newsfull-item<%= item.image ? ' has-media' : '' %>">
+<% if (item.image) { %>
+<a class="cbc-newsfull-media" href="<%- item.path %>" tabindex="-1" aria-hidden="true"><img src="<%- item.image %>" alt=""></a>
+<% } %>
+<div class="cbc-newsfull-body">
+<span class="cbc-newsfull-date"><%= item.date %></span>
+<a class="cbc-newsfull-title" href="<%- item.path %>"><%= item.title %></a>
+<% if (item.description) { %>
+<span class="cbc-newsfull-desc"><%- item.description %></span>
+<% } %>
+</div>
+</div>
+<% } %>
+</div>

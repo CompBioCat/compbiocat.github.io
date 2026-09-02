@@ -1,0 +1,117 @@
+# Projects and funding, for scripts/build_projects.py.
+#
+# Every figure here comes from content/BRIEF.md section 5. Nothing is inferred.
+#
+# Rendered as a definition list rather than cards, per the design direction.
+# Any of `funder`, `call`, `reference`, `amount`, `dates` and `role` may be
+# omitted — a row appears only when there is a value for it.
+
+current:
+  - name: "BioReInt"
+    title: "Controlling reactive intermediates in biocatalysis through computational design tools"
+    funder: "European Research Council"
+    call: "Consolidator Grant"
+    reference: "ERC-2025-CoG-101232334"
+    amount: "€1,999,562"
+    dates: "October 2026 – 2031"
+    role: "Principal investigator: Marc Garcia-Borràs. Deputy coordinator: Ferran Feixas."
+
+  - title: "Hacia la reconstrucción computacional de la evolución en tiempo real de procesos biomoleculares y supramoleculares"
+    funder: "Ministerio de Ciencia e Innovación"
+    call: "Consolidación Investigadora"
+    reference: "CNS2025-165326"
+    amount: "€192,390"
+    dates: "April 2026 – March 2028"
+    role: "Principal investigator: Ferran Feixas."
+
+  - name: "CompBioCat"
+    title: "Integrative computational modeling of biochemical and biocatalytic processes: from understanding to design"
+    funder: "Ministerio de Ciencia e Innovación"
+    call: "Generación de Conocimiento"
+    reference: "PID2022-141676NB-I00"
+    amount: "€168,750"
+    dates: "September 2023 – 30 June 2027"
+    role: "Co-principal investigators: Ferran Feixas and Marc Garcia-Borràs."
+
+  - title: "Desarrollo automatizado de biocatalizadores a través de inteligencia artificial"
+    funder: "CSIC"
+    call: "MOMENTUM 2024"
+    reference: "MMT24-ISQCH-01"
+    amount: "€458,022"
+    dates: "December 2024 – November 2028"
+    role: "Co-principal investigator: Marc Garcia-Borràs, with Dr. Juan V. Alegre-Requena (ISQCH, CSIC)."
+
+  - name: "2AID"
+    title: "Autonomous artificial-intelligence-driven discovery of sustainable fuels, industrial feedstocks and materials"
+    funder: "Agencia Estatal de Investigación"
+    call: "Proyectos en el Ámbito de la Inteligencia Artificial"
+    reference: "AIA2025-163492-C51"
+    amount: "€541,250"
+    dates: "2025 – 2029"
+    role: "Principal investigator: Dr. Juan V. Alegre-Requena (CSIC). Research team: both principal investigators."
+
+  - title: "Unfolding the potential of S-adenosylmethionine-dependent enzyme chemistry"
+    funder: "Deutsche Forschungsgemeinschaft"
+    call: "Research Unit FOR 5596"
+    reference: "Project 510974120"
+    dates: "2023 – 2029"
+    role: "Marc Garcia-Borràs: Mercator Fellow and international associated researcher."
+
+  - title: "Ramón y Cajal fellowships"
+    funder: "Ministerio de Ciencia e Innovación"
+    reference: "RYC2020-028628-I and RYC2020-029552-I"
+    dates: "Funding 2022 – 2027"
+    role: "Marc Garcia-Borràs (RYC2020-028628-I) and Ferran Feixas (RYC2020-029552-I)."
+    note: >
+      Both appointments ended in 2026, when the two principal investigators
+      took up permanent positions; the fellowship funding runs to 2027. This is
+      why the team page biographies give 2022–2026 while the funding record here
+      gives 2027 — both are correct.
+
+  - name: "COZYME"
+    title: "Pan-European network on the computational redesign of enzymes"
+    funder: "COST"
+    call: "COST Action"
+    reference: "CA21162"
+    role: "Marc Garcia-Borràs: working groups WG1 and WG2."
+
+completed:
+  - name: "SolarChem 5.0"
+    funder: "Ministerio de Ciencia e Innovación"
+    reference: "TED2021-130173B-C42"
+    amount: "€125,350"
+    dates: "2022 – 2025"
+    role: "Co-principal investigators: both."
+
+  - name: "IntBioCat"
+    funder: "Ministerio de Ciencia e Innovación"
+    reference: "PID2019-111300GA-I00"
+    amount: "€72,600"
+    dates: "2020 – 2023"
+    role: "Principal investigator: Marc Garcia-Borràs."
+
+  - name: "MetAccembly"
+    funder: "Marie Skłodowska-Curie Actions"
+    call: "Individual Fellowship"
+    reference: "661160"
+    amount: "€158,121"
+    dates: "2015 – 2017"
+    role: "Principal investigator: Ferran Feixas."
+
+  - title: "Accelerating (bio)molecular recognition and assembly"
+    funder: "Ministerio de Ciencia e Innovación"
+    reference: "RTI2018-101032-J-I00"
+    amount: "€153,791"
+    dates: "2019 – 2022"
+    role: "Principal investigator: Ferran Feixas."
+
+# ---------------------------------------------------------------------------
+# One sentence rather than a full list, as the brief asks.
+# ---------------------------------------------------------------------------
+resources:
+  heading: "Computational resources"
+  body: >
+    Computing time is provided by the Red Española de Supercomputación, at the
+    Barcelona Supercomputing Center, CESGA and CSUC: more than eighteen
+    allocations as principal investigator since 2016, together with one PRACE
+    allocation.

@@ -1,0 +1,213 @@
+# Configuration for scripts/build_publications.py
+#
+# The BibTeX files are the source of truth for the papers themselves. This file
+# holds only the decisions a script cannot make: which names to emphasise, and
+# which preprints are still unpublished.
+
+sources:
+  - works_ferran_feixas.bib
+  - works_mgb.bib
+
+# ---------------------------------------------------------------------------
+# Group-member names, rendered in medium weight in the author lists.
+# Matched on normalised surname plus first initial, so the different spellings
+# and export styles across the two files all resolve. Accents are ignored for
+# matching, so "Garcia-Borras" finds "Garcia-Borràs".
+#
+# Surname variants for the same person go on one line, separated by "|".
+# ---------------------------------------------------------------------------
+group_members:
+  - surname: "Garcia-Borras|Garcia-Borrás|Borras"
+    initial: M
+  - surname: "Feixas"
+    initial: F
+  - surname: "Bosch-Coch|Bosch"
+    initial: D
+  - surname: "Girame|Girame Rizzo"
+    initial: H
+  - surname: "Berga|Berga Dominguez"
+    initial: C
+  - surname: "John|Elza-John|Elsa John"
+    initial: A
+  - surname: "Abes"
+    initial: H
+  - surname: "Lago-Saavedra|Lago Saavedra|Lago"
+    initial: R
+  - surname: "Muro Puente|Muro-Puente|Muro"
+    initial: I
+  # Alumni the group asked to keep listed
+  - surname: "Soler"
+    initial: J
+  - surname: "Calvo-Tusell|Calvó-Tusell"
+    initial: C
+
+# ---------------------------------------------------------------------------
+# Preprints.
+#
+# Anything with a ChemRxiv (10.26434), bioRxiv (10.1101), arXiv (10.48550) or
+# Research Square (10.21203) DOI is treated as a preprint and kept out of the
+# main publication list.
+#
+# A preprint whose work has since appeared in a journal should not show in the
+# preprint section either. The script drops those automatically when the
+# preprint and the published paper share a title (exact, or 90% similar). That
+# catches 18 of the 29 preprints in the current files.
+#
+# It cannot catch the rest, because titles routinely change on publication —
+# so the remaining judgement is recorded here by hand.
+# ---------------------------------------------------------------------------
+preprints:
+  # Preprints known to have been published, listed here because the title
+  # changed too much for automatic matching. These are excluded from the
+  # preprint section.
+  #
+  # NOTE: these six are my assessment, not the group's — every one is from 2023
+  # or earlier, and none could plausibly still be under review. Move any of
+  # them to `unpublished` below if it genuinely has not appeared.
+  published_elsewhere:
+    - doi: "10.1101/2023.11.25.568631"
+      note: "2023 — Origin of evolutionary bifurcation in an enzyme"
+    - doi: "10.1101/2023.12.15.571702"
+      note: "2023 — Structural and mechanistic views of enzymatic, heme-dependent N–N bond formation"
+    - doi: "10.1101/2021.10.21.464958"
+      note: "2021 — Unravelling the Graded Millisecond Allosteric Activation of IGP Synthase.
+              Published as JACS 2022, 144, 7146; the brief lists it under selected publications."
+    - doi: "10.26434/chemrxiv.14102363.v1"
+      note: "2021 — Origin and Control of Chemoselectivity in Cytochrome c-Catalyzed Carbene Transfer"
+    - doi: "10.1101/2020.04.14.041590"
+      note: "2020 — Pervasive cooperative mutational effects on multiple catalytic enzyme traits"
+    - title: "Dynamism and Cooperativity essential for efficient catalysis in Aspergillus niger Monoamine Oxidase"
+      note: "2019 — no DOI in the .bib, so matched by title instead"
+    # Both confirmed published by the group, 2 Sep 2026.
+    - doi: "10.1101/2024.09.27.615329"
+      note: "2024 — A computationally designed panel of diverse and selective peroxygenases"
+    - doi: "10.26434/chemrxiv-2026-fr63z/v2"
+      note: "2026 — Establishing the Photoenzyme CvFAP as a Platform for New-to-Nature
+              Radical Biotransformations. The published version is in the list as
+              'Establishing the Fatty Acid Photodecarboxylase CvFAP as a Platform for
+              Photobiocatalytic Radical Transformations'."
+
+  # Preprints confirmed as still unpublished. Anything not listed above and not
+  # auto-matched appears in the preprint section regardless; this list exists so
+  # the intended contents are explicit and reviewable.
+  unpublished:
+    - doi: "10.26434/chemrxiv.15006578/v1"
+      note: "2026 — Fullerene-encapsulating Matryoshkas"
+    - doi: "10.26434/chemrxiv.15002339/v1"
+      note: "2026 — Determining the Ambimodality of Transition State Structures"
+    - doi: "10.26434/chemrxiv.15001057/v1"
+      note: "2026 — Site-Selective and Stereoselective C(sp3)-H Pyridomethylation"
+
+# ---------------------------------------------------------------------------
+# Entries to drop entirely. Use for exports that are not really papers —
+# datasets, duplicate conference records, corrigenda.
+# ---------------------------------------------------------------------------
+exclude:
+  # BibTeX entry types that are never papers.
+  types:
+    - misc            # the ORCID export carries one @misc record
+
+  # Records that are not papers. Matched case-insensitively as a phrase anywhere
+  # in the title. The build summary names every entry each pattern removes, so
+  # an over-broad pattern cannot silently delete real work.
+  title_patterns:
+    - "publisher correction"
+    - "author correction"
+    - "correction to"
+    - "corrigendum"
+    - "erratum"
+    - "retraction"
+    # Journal cover features are records for the artwork, not the paper.
+    - "front cover"
+    - "back cover"
+    - "inside cover"
+    - "cover feature"
+    - "cover picture"
+
+  # Venues that are not journals. ECS Meeting Abstracts records are abstracts
+  # for conference talks, not papers.
+  journal_patterns:
+    - "ECS Meeting Abstracts"
+    - "Meeting Abstracts"
+
+  # Specific records to drop, identified by a distinctive part of the title.
+  # For true duplicates that survive deduplication because the two entries are
+  # spelled differently — not for whole categories of record, which belong in
+  # the pattern lists above.
+  titles:
+    - match: "(eta(6)-C6H6)Cr(CO)(3)"
+      note: >
+        Duplicate of the same paper (Polish J. Chem. 81, 783-797). The kept copy
+        is spelled "(η6-C6-H6)Cr(CO)3"; both entries are otherwise identical and
+        neither has a DOI, so only the spelling distinguishes them. Merged at the
+        group's request, 2 Sep 2026.
+
+# ---------------------------------------------------------------------------
+# Literal text repairs, applied to titles and journal names after cleanup.
+#
+# For damage a rule cannot safely generalise. Italic tags in the exports are
+# ambiguous: "Photodecarboxylase <i>Cv</i>FAP" wants a space before the italic
+# and none after, while "<i>de novo</i> design" wants spaces on both sides.
+# Rather than guess with a heuristic that could mangle correct titles, the few
+# affected strings are named here.
+#
+# The build summary reports every fix that was applied, and warns about any
+# that matched nothing — so a stale entry cannot sit here unnoticed.
+# ---------------------------------------------------------------------------
+title_fixes:
+  - match: "Photodecarboxylase Cv FAP"
+    replace: "Photodecarboxylase CvFAP"
+    note: "italic <i>Cv</i> left a space that should not be there"
+
+  # The five characters the ORCID export lost, supplied by the group on
+  # 2 Sep 2026. They gave plain-text transliterations (gamma, pi, n6, ');
+  # rendered here as the proper Unicode characters, which is what the titles
+  # actually use. Change any of these if a different form is wanted.
+  - match: "p38?"
+    replace: "p38\u03b3"
+    note: "gamma"
+  - match: "MalA/MalA?"
+    replace: "MalA/MalA\u2032"
+    note: "prime"
+  - match: "Diels?Alder"
+    replace: "Diels\u2013Alder"
+    note: "en dash"
+  - match: "Distortion?Interaction"
+    replace: "Distortion\u2013Interaction"
+    note: "en dash, same title as above"
+  - match: "Are ?-electrons"
+    replace: "Are \u03c0-electrons"
+    note: "pi"
+  - match: "(?6-C6-H6)"
+    replace: "(\u03b76-C6-H6)"
+    note: "eta"
+  # Author names whose correct spelling is verifiable from this project's own
+  # content — the brief, or the same name spelled correctly in another entry of
+  # the same .bib. Not guesses.
+  - match: "Garcia-Borra?s"
+    replace: "Garcia-Borr\u00e0s"
+    note: "spelled correctly in 70+ other entries in the same files"
+  - match: "Calvo?-Tusell"
+    replace: "Calv\u00f3-Tusell"
+    note: "spelled correctly elsewhere in the same files; alumna named in the brief"
+  - match: "Si?lvia"
+    replace: "S\u00edlvia"
+    note: "Sílvia Osuna, IQCC — named in the brief's collaborations section"
+  - match: "?lvarez-Yebra"
+    replace: "\u00c1lvarez-Yebra"
+    note: >
+      Inferred: "?lvarez" word-initial admits only "Álvarez". Correct it here if
+      wrong.
+  - match: "Blanco, ?."
+    replace: "Blanco, \u00d3."
+    note: >
+      Óscar Blanco, confirmed by the group. The accented Ó is used because a
+      plain "O" would not have been lost in the export in the first place.
+  - match: "Fi?er"
+    replace: "Fi\u0161er"
+    note: "Fišer, confirmed by the group"
+  - match: "Zale?ny"
+    replace: "Zale\u015bny"
+    note: >
+      Author name, not a title: Robert Zaleśny's s-acute was lost in the export.
+      Fixes apply to author lists as well as titles and journal names.

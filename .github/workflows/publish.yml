@@ -1,0 +1,44 @@
+# Renders the site with Quarto and publishes it to the gh-pages branch.
+#
+# Runs on every push to main. The generated _publications.md, _team.md,
+# _projects.md and _logos.md are committed, so CI needs Quarto only — no Python.
+#
+# Two settings have to be made once in the GitHub web interface and cannot be
+# set from here:
+#   Settings > Actions > General > Workflow permissions -> Read and write
+#   Settings > Pages  > Build and deployment > Source   -> Deploy from a branch
+#                                                          Branch: gh-pages / (root)
+
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# A second push while the first is still deploying would race for gh-pages.
+concurrency:
+  group: publish-gh-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.10.18      # pinned to match local, so CI cannot drift
+
+      - name: Render and publish to gh-pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

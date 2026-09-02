@@ -1,0 +1,21 @@
+---
+title: "Ferran Feixas awarded a Consolidación Investigadora project"
+date: 2026-04-15
+categories: [grant]
+description: >
+  A two-year Consolidación Investigadora project from the Ministerio de Ciencia
+  e Innovación, on reconstructing the real-time evolution of biomolecular and
+  supramolecular processes.
+---
+
+Ferran Feixas has been awarded a **Consolidación Investigadora** project by the
+Ministerio de Ciencia e Innovación, for *Hacia la reconstrucción computacional de
+la evolución en tiempo real de procesos biomoleculares y supramoleculares* —
+towards the computational reconstruction of the real-time evolution of
+biomolecular and supramolecular processes.
+
+The project runs from April 2026 to March 2028, with funding of €192,390
+(reference CNS2025-165326). It continues the group's work on reconstructing how
+biomolecular processes evolve in time, and how their environment reshapes them.
+
+Full details are on the [projects](../projects.qmd) page.

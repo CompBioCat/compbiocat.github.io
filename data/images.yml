@@ -1,0 +1,133 @@
+# Image processing configuration for the CompBioCat site.
+#
+# Full-resolution source files live in assets/images/_originals/.
+# scripts/build_images.py reads this file and writes web-ready derivatives into
+# assets/images/{people,banner,logos}/. Never edit the generated files by hand —
+# they are overwritten on every run. Edit this file instead.
+#
+# To replace a photo: drop the new file into assets/images/_originals/people/,
+# point `source:` at it, and re-run the script. Crops are expressed as FRACTIONS
+# of the source image, so a higher-resolution version of the same photo needs no
+# change to the crop numbers.
+
+defaults:
+  # grayscale | colour — the default for every image. Individual entries may
+  # override it with their own `treatment:` key.
+  #
+  # Colour since 2 Sep 2026, at the group's request. Grayscale was originally
+  # chosen to hide the differing wall tints across the nine portraits, and to
+  # make an outdoor photo of Marc sit alongside eight indoor ones. Both reasons
+  # are gone: the tints are close enough in practice, and Marc now has a
+  # portrait from the same shoot as the rest.
+  treatment: colour
+  # ONE width, not a 1x/2x pair. The sources are 283x213, so a 4:5 crop leaves
+  # 171px to work with — a "2x" file would be a 2.6x upscale presented as if it
+  # were sharp. A single 222px file is what the widest use needs (the four-up
+  # grid); the PI portraits show the same file at 180px, downscaled and crisp.
+  portrait_widths: [222]
+  portrait_aspect: 0.8          # 4:5 portrait, matching ferranfeixas.github.io
+  # JPEG quality for generated files
+  quality: 82
+  # Warn if a committed original exceeds this (MB) — keeps the repo lean
+  max_original_mb: 5.0
+  # Logos are flattened onto this colour rather than made transparent, so the
+  # institutional marks stay pixel-faithful (keying the background out damages
+  # the white wave in the iQCC mark, which extends beyond its purple disc).
+  # MUST match $paper in assets/scss/custom.scss. Change both together and
+  # re-run this script. Set to null to emit transparent PNGs instead.
+  logo_background: "#FBFAF8"
+
+# ---------------------------------------------------------------------------
+# Portraits. Keys are the output slug: assets/images/people/<slug>.jpg
+# Order here is irrelevant; team.yml controls display order.
+#
+# crop: [left, top, width] as fractions of the source width/height.
+#       Height is derived from portrait_aspect. Omit for the default, which is
+#       the largest square anchored to the top edge, horizontally centred —
+#       correct for a head-and-shoulders shot.
+# ---------------------------------------------------------------------------
+people:
+  marc-garcia-borras:
+    source: marc_garcia_iqcc.jpg
+    note: >
+      Replaced 2 Sep 2026 with a portrait from the same shoot as the other
+      eight — plain wall, same framing, same 283x213 dimensions. The previous
+      file (marc_garcia.jpg, an outdoor photo) needed a tight interim crop and
+      is kept in _originals/ but no longer used.
+
+  ferran-feixas:
+    source: FerranFeixas.jpg
+
+  daniel-bosch-coch:
+    source: Daniel_Bosch2.jpg
+
+  helena-girame:
+    source: Helena_Girame.jpg
+
+  cristina-berga:
+    source: Cristina_Berga.jpg
+    note: Venetian-blind background differs from the plain walls; cropping cannot fix it.
+
+  aqza-elsa-john:
+    source: Aqza_Elza.jpg
+    note: >
+      Slug follows BRIEF.md section 4. The supplied file is named "Elza" —
+      spelling still TODO, confirm with the group before launch.
+
+  hande-abes:
+    source: Hande_Abes.jpg
+    note: Surname spelling (Abeş) still TODO per BRIEF.md section 4.
+
+  raul-lago-saavedra:
+    source: Raul_Lago-Saavedra.jpg
+
+  itzel-muro-puente:
+    source: Itzel_Muro.jpg
+
+# ---------------------------------------------------------------------------
+# Group photo. Two derivatives from one original: a wide band for the home-page
+# full-bleed banner, and a less extreme crop for the top of the team page.
+# ---------------------------------------------------------------------------
+banner:
+  team-sidebar:
+    source: compbiocat_team.jpg
+    # 4:3, trimmed on all four sides onto the group itself. Faces read about 26%
+    # larger than the full-width crop did at the same display size.
+    crop: [0.1362, 0.2976, 0.7937, 0.4464]
+    widths: [342, 684]
+    note: Home-page sidebar photo, 4:3, displayed at the narrow column width.
+  team:
+    source: compbiocat_team.jpg
+    crop: [0.0, 0.273, 1.0, 0.500]
+    widths: [900, 1800]
+    note: Team-page group photo, 3:2.
+
+# ---------------------------------------------------------------------------
+# Institutional logos. Supplied by the group — never downloaded, never recoloured.
+# Processing is limited to trimming surrounding whitespace and matching optical
+# height, so they sit on one baseline without one visually dominating.
+# ---------------------------------------------------------------------------
+logos:
+  udg:
+    source: udg_logo.png
+    optical_height: 40      # px at 1x. Taller than the others because the
+                            # UdG mark is a stacked two-line wordmark; at an
+                            # equal height it reads as much smaller. The three
+                            # heights keep a 40/27/25 ratio so they sit on one
+                            # optical baseline, sized to fit the home page's
+                            # narrow sidebar column on a single row.
+    alt: Universitat de Girona
+    url: https://www.udg.edu
+  iqcc:
+    source: iqcc_logo.png
+    optical_height: 27
+    alt: Institute of Computational Chemistry and Catalysis
+    url: https://iqcc.udg.edu
+  icrea:
+    source: icrea_logo.jpg
+    optical_height: 25
+    # JPEG, so the background carries compression noise around the mark;
+    # a looser threshold catches the halo without touching the gold.
+    white_threshold: 232
+    alt: ICREA
+    url: https://www.icrea.cat

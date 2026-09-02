@@ -1,0 +1,59 @@
+---
+title: "Contact"
+---
+
+::: {.cbc-lead-plain}
+We are always glad to hear from prospective PhD students and postdoctoral
+researchers. Write to either of us directly.
+:::
+
+::: {.cbc-contact}
+
+::: {.cbc-contact-block}
+::: {.cbc-side-label}
+Principal investigators
+:::
+
+::: {.cbc-contact-person}
+[Marc Garcia-Borràs]{.cbc-person-name}
+[ICREA Research Professor at IQCC, Universitat de Girona]{.cbc-person-role}
+[[marc.garcia@udg.edu](mailto:marc.garcia@udg.edu)]{.cbc-contact-mail}
+:::
+
+::: {.cbc-contact-person}
+[Ferran Feixas]{.cbc-person-name}
+[Associate Professor at IQCC, Universitat de Girona]{.cbc-person-role}
+[[ferran.feixas@udg.edu](mailto:ferran.feixas@udg.edu)]{.cbc-contact-mail}
+:::
+:::
+
+::: {.cbc-contact-block}
+::: {.cbc-side-label}
+Address
+:::
+
+::: {.cbc-address}
+Institut de Química Computacional i Catàlisi\
+Facultat de Ciències, Universitat de Girona\
+C/ Maria Aurèlia Capmany 69\
+Campus Montilivi\
+17003 Girona, Catalonia, Spain
+:::
+:::
+
+::: {.cbc-contact-block}
+::: {.cbc-side-label}
+Elsewhere
+:::
+
+- [ORCID — Marc Garcia-Borràs](https://orcid.org/0000-0001-9458-1114)
+- [ORCID — Ferran Feixas](https://orcid.org/0000-0001-5147-0000)
+- [GitHub — github.com/compbiocat](https://github.com/compbiocat)
+- [Ferran Feixas — personal site](https://ferranfeixas.github.io)
+- [Institute of Computational Chemistry and Catalysis (IQCC)](https://iqcc.udg.edu)
+- [Universitat de Girona](https://www.udg.edu)
+:::
+
+:::
+
+{{< include _logos.md >}}
